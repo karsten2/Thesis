@@ -1,0 +1,62 @@
+\documentclass[12pt]{report}
+\input{settings/variablen}
+
+\usepackage{graphicx}
+\graphicspath{ {img/} }
+
+% deutsche Silbentrennung
+\usepackage[ngerman]{babel}
+
+% Umlaute unter utf8
+\usepackage[utf8]{inputenc}
+
+% Datum 
+\usepackage{datetime}
+\newdateformat{germanDate}{\twodigit{\THEDAY}.\twodigit{\THEMONTH}.\THEYEAR}
+
+% Paket für Zeilenabstand
+\usepackage{setspace}
+
+\usepackage[a4paper,left=3.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\begin{document}
+
+	% Leere Seite am Anfang
+	\newpage
+	\thispagestyle{empty} % erzeugt Seite ohne Kopf- / Fusszeile
+	\section*{ }
+
+	% Deckblatt
+	\newpage
+	\doublespacing
+	\newgeometry{left=2cm, right=2.5cm, top=2.5cm, bottom=2cm}
+	\input{documents/00_deckblatt}
+
+	\newgeometry{left=3.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+	\onehalfspacing
+
+	\tableofcontents	
+
+	\chapter{Einleitung}
+	\input{documents/01_einleitung}
+
+	\chapter{Kapitel 2}
+	\input{documents/02_kapitel_1}
+
+	\chapter{Fazit}
+	\input{documents/08_fazit}
+	
+	% Selbststängigkeitserklärung
+	\newpage
+	\input{documents/99_erklaerung}
+	
+	% Leere Seite am Ende
+	\newpage
+	\thispagestyle{empty} 
+	\section*{ }
+	
+	
+\end{document}
